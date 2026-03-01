@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AKSHAY UNKAL</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+scroll-behavior:smooth;
+}
+
+/* BACKGROUND */
+
+body{
+
+background:black;
+color:white;
+overflow-x:hidden;
+
+}
+
+
+/* PARTICLES */
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+
+/* NAVBAR */
+
+nav{
+
+position:fixed;
+width:100%;
+
+padding:20px 10%;
+
+background:rgba(0,0,0,0.6);
+
+backdrop-filter:blur(20px);
+
+display:flex;
+justify-content:space-between;
+
+z-index:1000;
+
+border-bottom:1px solid rgba(255,255,255,0.1);
+
+}
+
+.logo{
+
+font-size:26px;
+font-weight:700;
+color:#00fff2;
+
+}
+
+nav ul{
+
+display:flex;
+gap:30px;
+list-style:none;
+
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#00fff2;
+
+}
+
+
+/* HERO */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+}
+
+
+.hero h1{
+
+font-size:70px;
+
+}
+
+.hero span{
+
+color:#00fff2;
+
+}
+
+
+.hero h2{
+
+margin-top:10px;
+font-weight:300;
+
+}
+
+
+
+/* BUTTON */
+
+.btn{
+
+margin-top:25px;
+
+padding:15px 35px;
+
+border-radius:40px;
+
+background:#00fff2;
+
+color:black;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+transform:scale(1.1);
+
+}
+
+
+/* SECTIONS */
+
+section{
+
+padding:100px 10%;
+
+}
+
+
+/* TITLES */
+
+.title{
+
+font-size:50px;
+text-align:center;
+margin-bottom:40px;
+
+}
+
+
+
+/* GLASS */
+
+.glass{
+
+background:rgba(255,255,255,0.05);
+
+backdrop-filter:blur(25px);
+
+padding:40px;
+
+border-radius:25px;
+
+border:1px solid rgba(255,255,255,0.1);
+
+}
+
+
+/* SKILLS */
+
+.skills{
+
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+
+}
+
+.skill{
+
+padding:15px 30px;
+
+background:rgba(255,255,255,0.07);
+
+border-radius:40px;
+
+transition:.3s;
+
+}
+
+.skill:hover{
+
+transform:scale(1.15);
+background:#00fff2;
+color:black;
+
+}
+
+
+/* PROJECTS */
+
+.projects{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+}
+
+
+.project{
+
+padding:30px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,0.05);
+
+transition:.4s;
+
+transform-style:preserve-3d;
+
+}
+
+.project:hover{
+
+transform:rotateX(10deg) rotateY(10deg) scale(1.05);
+
+background:rgba(255,255,255,0.1);
+
+}
+
+
+/* CONTACT */
+
+.contact{
+
+text-align:center;
+line-height:2;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+text-align:center;
+
+padding:20px;
+
+background:black;
+
+border-top:1px solid rgba(255,255,255,0.1);
+
+}
+
+
+
+/* SCROLL ANIMATION */
+
+.hidden{
+
+opacity:0;
+transform:translateY(80px);
+transition:1s;
+
+}
+
+.show{
+
+opacity:1;
+transform:translateY(0px);
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<canvas id="particles"></canvas>
+
+
+<nav>
+
+<div class="logo">PORTFOLIO</div>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
+<li><a href="#projects">Projects</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+
+
+<section class="hero" id="home">
+
+<h1>I'm <span>AKSHAY UNKAL</span></h1>
+
+<h2 id="typing"></h2>
+
+<a href="#contact" class="btn">Contact Me</a>
+
+</section>
+
+
+
+<section id="about" class="hidden">
+
+<h1 class="title">About Me</h1>
+
+<div class="glass">
+
+Write about yourself here.
+
+Student / Developer / Creator.
+
+</div>
+
+</section>
+
+
+
+<section id="skills" class="hidden">
+
+<h1 class="title">Skills</h1>
+
+<div class="skills">
+
+<div class="skill">HTML</div>
+<div class="skill">Python</div>
+<div class="skill">Editing</div>
+<div class="skill">Design</div>
+<div class="skill">content creation</div>
+
+</div>
+
+</section>
+
+
+
+<section id="projects" class="hidden">
+
+<h1 class="title">Projects</h1>
+
+<div class="projects">
+
+
+<div class="project">
+
+<h3>coming soon</h3>
+
+<p>coming soon</p>
+
+</div>
+
+
+
+<div class="project">
+
+<h3>coming soon</h3>
+
+<p>coming soon</p>
+
+</div>
+
+
+
+<div class="project">
+
+<h3>coming soon</h3>
+
+<p>coming soon</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<section id="contact" class="hidden">
+
+<h1 class="title">Contact</h1>
+
+<div class="glass contact">
+
+Email: akshayunkal92@gmail.com
+
+<br>
+
+Phone: +91 xxxxxxxx
+
+<br>
+
+Instagram: @lifee._.with._.akkshayy._
+
+<br>
+
+LinkedIn: @akshayunkal
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+© 2026 AKSHAY UNKAL
+
+</footer>
+
+
+
+<script>
+
+/* TYPING */
+
+const words=["Web Developer","Designer","Programmer","Creator"];
+
+let i=0,j=0,current="",deleting=false;
+
+function type(){
+
+current=words[i];
+
+if(deleting){
+
+document.getElementById("typing").innerHTML=current.substring(0,j--);
+
+if(j<0){
+
+deleting=false;
+
+i++;
+
+if(i>=words.length)i=0;
+
+}
+
+}
+
+else{
+
+document.getElementById("typing").innerHTML=current.substring(0,j++);
+
+if(j>current.length){
+
+deleting=true;
+
+}
+
+}
+
+setTimeout(type,90);
+
+}
+
+type();
+
+
+
+/* SCROLL ANIMATION */
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
+
+
+
+/* PARTICLES */
+
+const canvas=document.getElementById("particles");
+
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<80;i++){
+
+particles.push({
+
+x:Math.random()*canvas.width,
+
+y:Math.random()*canvas.height,
+
+r:Math.random()*3+1,
+
+dx:Math.random()-0.5,
+
+dy:Math.random()-0.5
+
+});
+
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+
+ctx.beginPath();
+
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+
+ctx.fillStyle="#00fff2";
+
+ctx.fill();
+
+p.x+=p.dx;
+
+p.y+=p.dy;
+
+});
+
+requestAnimationFrame(draw);
+
+}
+
+draw();
+
+</script>
+
+
+</body>
+</html>
